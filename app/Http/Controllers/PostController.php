@@ -6,8 +6,6 @@ use App\Http\Resources\PostDetailCustomResource;
 use App\Http\Resources\PostDetailResource;
 use App\Http\Resources\PostResource;
 use App\Models\Post;
-use Illuminate\Http\Request;
-
 class PostController extends Controller
 {
     public function index()
