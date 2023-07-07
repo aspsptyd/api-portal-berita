@@ -13,8 +13,8 @@ class PostController extends Controller
 {
     public function index()
     {
-        $posts = Post::all();
-        return PostResource::collection($posts);
+        $posts = Post::with('writer:id,username')->get();
+        return PostDetailResource::collection($posts);
     }
 
     public function show($id) 
