@@ -40,7 +40,7 @@ class AuthenticationController extends Controller
                     "username" => $user->username,
                     "firstname" => $user->firstname,
                     "lastname" => $user->lastname,
-                    "join_at" => date_format($user->created_at, "Y/m/d H:i:s"),
+                    "join_at" => $user->created_at === null ? null : date_format($user->created_at, "Y/m/d H:i:s"),
                 ]
             ];
             return response()->json(["response" => $success]);
