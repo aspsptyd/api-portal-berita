@@ -24,7 +24,7 @@ class AuthenticationController extends Controller
                 "msg" => "Data user tidak ditemukan di database!, Silahkan cek kembali email & password Anda.",
             ];
 
-            return response()->json(["response" => $error]);
+            return response()->json(["response" => $error], 404);
         } else {
             if (!$user || !Hash::check($request->password, $user->password)) {
                 throw ValidationException::withMessages([
