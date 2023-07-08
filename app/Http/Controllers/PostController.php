@@ -66,6 +66,13 @@ class PostController extends Controller
         $post = Post::findOrFail($id);
         $post->delete();
 
+        $delete_result[] = [
+            "code" => 200,
+            "msg" => "Anda berhasil menghapus post " . $post->title . " (" . $post->id . ")",
+        ];
+
+        return response()->json(["response" => $delete_result]);
+
         return new PostDetailResource($post->loadMissing('writer:id,username'));
     }
 }
